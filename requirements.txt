@@ -1,0 +1,8 @@
+//Gui's requirements
+pip install tornado
+pip install var_dump
+pip install sqlalchemy
+pip install pysqlite3
+
+//Git connector's requirements
+
