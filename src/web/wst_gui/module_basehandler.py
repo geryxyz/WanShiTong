@@ -11,12 +11,9 @@ class ModulebaseHandler(tornado.web.RequestHandler):
 
     def prepare(self):
         pass
-        # raise Exception('Error!')
-        # self.set_status(301)
-
 
     def on_finish(self):
         pass
 
     def write_error(self, status_code, **kwargs):
-        self.write("Error! Error code: "+str(status_code))
+        self.render("404.html", error_code=str(status_code))
