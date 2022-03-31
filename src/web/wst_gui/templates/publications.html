@@ -8,8 +8,10 @@
   <div class="row">
 
     {%include elements/side-navbar.html%}
-    <div class="col-sm-10">
+    <div class="col-sm-10" id="browsebar">
+      <form action="/publications/results" method="post" id="search">
       {%include elements/browsebar.html%}
+        </form>
     </div>
   </div>
 </div>
@@ -17,7 +19,30 @@
 <div class="mt-5 p-4 bg-dark text-white text-center">
   <p>Footer</p>
 </div>
+<script>
 
+  function execute() {
+    $("#add_c").click(function () {
+      $.ajax({
+        url: "/publications/add", success: function (result) {
+          $("#browsebar").html(result);
+          execute();
+        }
+      });
+
+    });
+    $("#remove_c").click(function () {
+      $.ajax({
+        url: "/publications/remove", success: function (result) {
+          $("#browsebar").html(result);
+          execute();
+        }
+      });
+
+    });
+  }
+  execute();
+</script>
 </body>
 
 {%include elements/footer.html%}

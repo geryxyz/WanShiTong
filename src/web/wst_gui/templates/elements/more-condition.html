@@ -1,0 +1,63 @@
+<div class="row">
+   <div class="col-md-6">
+      <label class="input-group-text" for="field_{{i}}">Field</label>
+   </div>
+   <div class="col-md-6">
+      <select name="field_{{i}}" id="field_{{i}}" form="search" >
+         <option selected>Choose...</option>
+         <option value="author">Author</option>
+         <option value="title">Title</option>
+         <option value="opel">Year</option>
+         <option value="audi">Volume</option>
+      </select>
+   </div>
+</div>
+
+
+<div class="row">
+   <div class="col-md-6">
+      <label class="input-group-text" for="type_{{i}}">Type</label>
+   </div>
+   <div class="col-md-6">
+      <select id="type_{{i}}" name="type_{{i}}" form="search">
+         <option selected>Choose...</option>
+         <option value="author">Article</option>
+         <option value="title">PHD thesis</option>
+         <option value="opel">MSC thesis</option>
+         <option value="audi">News</option>
+      </select>
+   </div>
+</div>
+
+
+<div class="d-flex justify-content-center">
+   <select id="condition_{{i}}" name="condition_{{i}}" form="search">
+      <option value="eq">Equals</option>
+      <option value="c">Contains</option>
+      <option value="eol">Equals or less</option>
+      <option value="eom">Equals or more</option>
+      <option value="ne">Not equals</option>
+      <option value="nc">Not contains</option>
+      <option value="mw">Match with</option>
+   </select>
+</div>
+
+
+<div class="d-flex justify-content-center">
+   <div class="col-md-auto">  <input type="text" id="value_{id}" class="form-control" placeholder="Enter value"></div>
+</div>
+<div class="d-flex justify-content-between">
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_{{i}}" id="logical_or_{{i}}" value="OR">
+      <label class="form-check-label" for="logical_or_{{i}}">OR</label>
+   </div>
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_and_{{i}}" id="logical_and_{{i}}" value="AND">
+      <label class="form-check-label" for="logical_and_{{i}}">AND</label>
+   </div>
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_xor_{{i}}" id="logical_xor_{{i}}" value="XOR">
+      <label class="form-check-label" for="logical_xor_{{i}}">XOR</label>
+   </div>
+</div>
+<hr class="divider">

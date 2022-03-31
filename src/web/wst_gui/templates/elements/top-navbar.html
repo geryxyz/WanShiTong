@@ -1,24 +1,46 @@
 <div class="contaiuner-fluid">
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-      <div class="col-sm-2"><img src="/static/logo02.png" alt="" class="max-width"></div>
+      <div class="col-sm-2"><a href="/index"><img src="/static/logo02.png" alt="" class="max-width"></a></div>
       <div class="col-sm-10">
-      <ul class="navbar-nav">
+      <ul class="nav nav-pills nav-fill">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="/registration">Sign up</a>
+          <a class="nav-link" href="/index">Index</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/publications">Browse publications</a>
         </li>
+        {% if handler.user_data[handler.session] is None %}
+          {# IF THE USER DID NOT LOG IN #}
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign up</a>
+        </li>
+        {% else %}
+          {# IF THE USER HAD LOG IN #}
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+               <li class="nav-item">
+          <a class="nav-link" href="/my_folders">My Folders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/my_folders">Add new article</a>
+        </li>
+          <span class="navbar-text">
+        Hello there {{ handler.userdata['username'] }}!
+        </span>
+
+        {% end %}
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
+
+
       </ul>
+
     </div>
   </nav>
 </div>

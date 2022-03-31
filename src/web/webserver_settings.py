@@ -11,7 +11,7 @@ class setup_config():
         self.setup()
 
     def setup(self):
-        webserver_ip_port = 160
+        webserver_ip_port = 80
         print(webserver_ip_port)
         # port = 8080
         #config file will load here
@@ -33,7 +33,7 @@ from .wst_gui.handlers import static_file_handler
 settings["debug"] = True
 # settings["debug"] = options.debug()
 settings["autoreload"] = True
-#settings["cookie_secret"] = "Hkj348+%!lkfad22DaorofoJOfeoajf83ij2ZEEZZ_like30_ZZPP",
+settings["cookie_secret"] = "Hkj348+%!lkfad22DaorofoJOfeoajf83ij2ZEEZZ_wst_ZZPP"
 
 
 settings["template_path"] = os.path.join(os.path.dirname(__file__), "wst_gui/templates")

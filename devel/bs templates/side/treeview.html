@@ -1,7 +1,15 @@
-<div class="col-sm-2">
-  <h2>My files</h2>
-  <h5>Photo of me:</h5>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="tree.css">
+<!------ Include the above in your HEAD tag ---------->
+
             <ul id="tree1">
+                <p class="well" style="height:135px;"><strong>Initialization no parameters</strong>
+
+                    <br /> <code>$('#tree1').treed();</code>
+
+                </p>
                 <li><a href="#">TECH</a>
 
                     <ul>
@@ -41,5 +49,13 @@
                 </li>
             </ul>
 
-  <hr class="d-sm-none">
-</div>
+
+
+//Initialization of treeviews
+
+$('#tree1').treed();
+
+$('#tree2').treed({openedClass:'glyphicon-folder-open', closedClass:'glyphicon-folder-close'});
+
+$('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});
+</script>

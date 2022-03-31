@@ -19,7 +19,8 @@ class Article:
         self._note=""
         #I've added every field it's not necessary to use every field
 
-    def getAuthor(self):
+    @property
+    def author(self):
         return self._author
 
     def getTitle(self):
