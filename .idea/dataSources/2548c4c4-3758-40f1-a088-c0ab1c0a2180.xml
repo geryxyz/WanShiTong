@@ -373,7 +373,7 @@
     <package id="169" parent="1" name="rtree"/>
     <package id="170" parent="1" name="rtree_i32"/>
     <table id="171" parent="2" name="folders"/>
-    <table id="172" parent="2" name="newTable"/>
+    <table id="172" parent="2" name="saved_articles"/>
     <table id="173" parent="2" name="sessions"/>
     <table id="174" parent="2" name="sqlite_master">
       <System>1</System>
@@ -1363,101 +1363,109 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="502" parent="172" name="col1">
+    <column id="502" parent="172" name="id">
       <Position>1</Position>
-      <DataType>INTEGER|0s</DataType>
+      <DataType>integer|0s</DataType>
     </column>
-    <column id="503" parent="173" name="id">
+    <column id="503" parent="172" name="folderid">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="504" parent="172" name="article">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="505" parent="173" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="504" parent="173" name="session">
+    <column id="506" parent="173" name="session">
       <Position>2</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <column id="505" parent="173" name="user_id">
+    <column id="507" parent="173" name="user_id">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="506" parent="173" name="creation_date">
+    <column id="508" parent="173" name="creation_date">
       <Position>4</Position>
       <DataType>DateTime|0s</DataType>
     </column>
-    <column id="507" parent="173" name="expiry_date">
+    <column id="509" parent="173" name="expiry_date">
       <Position>5</Position>
       <DataType>DateTime|0s</DataType>
     </column>
-    <column id="508" parent="173" name="last_usage">
+    <column id="510" parent="173" name="last_usage">
       <Position>6</Position>
       <DataType>DateTime|0s</DataType>
     </column>
-    <index id="509" parent="173" name="sessions_id_uindex">
+    <index id="511" parent="173" name="sessions_id_uindex">
       <ColNames>id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="510" parent="173" name="sessions_pk">
+    <key id="512" parent="173" name="sessions_pk">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sessions_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="511" parent="174" name="type">
+    <column id="513" parent="174" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="512" parent="174" name="name">
+    <column id="514" parent="174" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="513" parent="174" name="tbl_name">
+    <column id="515" parent="174" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="514" parent="174" name="rootpage">
+    <column id="516" parent="174" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="515" parent="174" name="sql">
+    <column id="517" parent="174" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="516" parent="175" name="name">
+    <column id="518" parent="175" name="name">
       <Position>1</Position>
     </column>
-    <column id="517" parent="175" name="seq">
+    <column id="519" parent="175" name="seq">
       <Position>2</Position>
     </column>
-    <column id="518" parent="176" name="id">
+    <column id="520" parent="176" name="id">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="519" parent="176" name="username">
+    <column id="521" parent="176" name="username">
       <Position>2</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <column id="520" parent="176" name="password">
+    <column id="522" parent="176" name="password">
       <Position>3</Position>
       <DataType>INTEGER|0s</DataType>
     </column>
-    <column id="521" parent="176" name="regdate">
+    <column id="523" parent="176" name="regdate">
       <Position>4</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <column id="522" parent="176" name="lastlogin">
+    <column id="524" parent="176" name="lastlogin">
       <Position>5</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <column id="523" parent="176" name="email">
+    <column id="525" parent="176" name="email">
       <Position>6</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <column id="524" parent="176" name="name">
+    <column id="526" parent="176" name="name">
       <Position>7</Position>
       <DataType>TEXT(256)|0s</DataType>
     </column>
-    <key id="525" parent="176">
+    <key id="527" parent="176">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

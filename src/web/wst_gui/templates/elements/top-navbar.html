@@ -9,7 +9,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/publications">Browse publications</a>
         </li>
-        {% if handler.user_data[handler.session] is None %}
+        {% if handler.userid is None %}
           {# IF THE USER DID NOT LOG IN #}
         <li class="nav-item">
           <a class="nav-link" href="/login">Login</a>

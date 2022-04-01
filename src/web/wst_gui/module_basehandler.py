@@ -19,6 +19,7 @@ class ModulebaseHandler(tornado.web.RequestHandler):
 
         # self.elements_dir = os.path.join(self.directory, "templates/elements")
         self.session = self.get_cookie("session", default=None)
+        self.userid = self.get_secure_cookie("userid", None)
         self.user_data = {}
         if(len(self.user_data) == 0):
             self.user_data = owner.user_data

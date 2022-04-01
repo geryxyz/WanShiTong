@@ -1,8 +1,6 @@
-from datetime import datetime
-from typing import List, Optional
-from pydantic import BaseModel
-from BaseEntry import BaseEntry
-from ..Filter import Filter
+from ..BaseEntry import BaseEntry
+# from ...Filter import Filter
+from typing import List
 
 class Article(BaseEntry):
     author: str
@@ -46,13 +44,3 @@ class Article(BaseEntry):
     @property
     def note(self):
         return self.note
-
-
-    
-
-class TitleFilter(Filter):
-    def __init__(self):
-        super().__init__(Article.title)
-
-    def is_pass(self, entity) -> bool:
-        raise NotImplementedError()

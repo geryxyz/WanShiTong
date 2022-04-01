@@ -61,7 +61,7 @@ for article in articles:
 
 if __name__ == '__main__':
     get_article(ContainsFilter(Article.title, "kiskutya"))
-
+    get_article(BiggerFilter(article.page, 9))
 
     datum = Datum()
 

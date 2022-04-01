@@ -5,6 +5,7 @@ from .handlers import browse
 from .handlers import publications
 from .handlers import signup
 from .handlers import user
+from .handlers import my_folders
 from .handlers.static_file_handler import StaticFileHandler
 import datetime
 from var_dump import var_dump
@@ -41,6 +42,7 @@ class ModuleInit():
             (r"/index", index.Index, handler_parameters),
             (r"/login", login.Index, handler_parameters),
             (r"/signup", signup.Index, handler_parameters),
+            (r"/my_folders", my_folders.Index, handler_parameters),
             (r"/publications", publications.Index, handler_parameters),
             (r"/publications/(.*)", publications.Index, handler_parameters),
             (r"/users", user.Index, handler_parameters),
