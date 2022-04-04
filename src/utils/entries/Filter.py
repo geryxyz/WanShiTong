@@ -71,27 +71,28 @@ class LessThanFilter(Filter):
     def is_pass(self, entity) -> bool:
         return self._number < self.target.fget(entity)
 
-class NotEqualsFilter(Filter):
-    """
-    If the Article's field not equals to a value. We use this for numbers only.
-    """
-    def __init__(self, target, number: int):
-        super().__init__(target)
-        self._number = number
-
-    def is_pass(self, entity) -> bool:
-        return self._number != self.target.fget(entity)
-
-class NotContainsFilter(Filter):
-    """
-    If the Article's field not contains a value. We use this for texts only.
-    """
-    def __init__(self, target, text: str):
-        super().__init__(target)
-        self._text = text
-
-    def is_pass(self, entity) -> bool:
-        return self._text not in self.target.fget(entity)
+#Its not necessary to have these classes, it can be done by a Not Logic statement
+# class NotEqualsFilter(Filter):
+#     """
+#     If the Article's field not equals to a value. We use this for numbers only.
+#     """
+#     def __init__(self, target, number: int):
+#         super().__init__(target)
+#         self._number = number
+#
+#     def is_pass(self, entity) -> bool:
+#         return self._number != self.target.fget(entity)
+#
+# class NotContainsFilter(Filter):
+#     """
+#     If the Article's field not contains a value. We use this for texts only.
+#     """
+#     def __init__(self, target, text: str):
+#         super().__init__(target)
+#         self._text = text
+#
+#     def is_pass(self, entity) -> bool:
+#         return self._text not in self.target.fget(entity)
 
 class MatchWithFilter(Filter):
     """

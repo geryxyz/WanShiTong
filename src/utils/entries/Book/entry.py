@@ -12,34 +12,4 @@ class Book(BaseEntry):
     publisher: str
     month: int
 
-    @property
-    def title(self):
-        return self.title
 
-    @property
-    def author(self):
-        return self.author
-
-    @property
-    def year(self):
-        return self.year
-
-    @property
-    def translator(self):
-        return self.translator
-
-    @property
-    def language(self):
-        return self.language
-
-    @property
-    def volume(self):
-        return self.volume
-
-    @property
-    def publisher(self):
-        return self.publisher
-
-    @property
-    def month(self):
-        return self.month

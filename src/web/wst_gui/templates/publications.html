@@ -40,6 +40,17 @@
       });
 
     });
+
+
+    $('#entries').change(function() {
+      $.ajax({
+        url: "/publications/refresh?entry_type="+$(this).val(), success: function (result) {
+          $("#browsebar").html(result);
+          execute();
+        }
+});
+    });
+
   }
   execute();
 </script>

@@ -6,6 +6,11 @@ import string
 import tornado.template
 import hashlib
 from var_dump import var_dump
+
+from ...utils.entries.logical import *
+from ...utils.entries.filter import *
+from ...utils.entries.Article import *
+
 from dateutil.relativedelta import relativedelta
 
 class ModulebaseHandler(tornado.web.RequestHandler):
@@ -84,6 +89,13 @@ class ModulebaseHandler(tornado.web.RequestHandler):
             # var_dump(self.userdata)
             return
 
+    def get_properties(self, target: object):
+        annotations = target.__dict__['__annotations__']
+        # annotations = target.__fields__
+        result = []
+        for i in annotations:
+            result.append(i)
+        return result
 
 
 

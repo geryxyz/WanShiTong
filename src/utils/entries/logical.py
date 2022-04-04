@@ -1,4 +1,4 @@
-from filter import Filter
+from .filter import Filter
 import operator
 
 class Logic(object):
@@ -76,5 +76,16 @@ class TrueLogic(Logic):
         self._cond1 = condition
         # self._cond2 = condition
 
+class FalseLogic(Logic):
+    def __init__(self, condition):
+        """
+        Excatly does nothing, we just need it because we use Logic mainly.
+        So if no Logic used, in my program I use TrueLogic
+        :param condition: Filter
+        """
+        super().__init__(condition)
+        self._cond1 = condition
+        # self._cond2 = condition
+
     def is_pass(self, entity) -> bool:
-        return self._cond1
+        return not self._cond1
