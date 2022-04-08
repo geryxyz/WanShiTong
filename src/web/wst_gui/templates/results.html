@@ -1,0 +1,27 @@
+<!-- that how will a website look like -->
+{%include elements/header.html%}
+
+<body>
+{%include elements/top-navbar.html%}
+
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    {%include elements/side-navbar.html%}
+    <div class="col-sm-10">
+
+{% if hasattr(handler, "web_message") %} <div class="d-flex justify-content-center">{% include elements/warnings/warning-template.html %}</div> {% end %}
+      {% for i in handler.result[0] %}
+        {% include elements/result.html %}
+      {% end %}
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+
+</body>
+
+{%include elements/footer.html%}

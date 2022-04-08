@@ -7,9 +7,6 @@ import tornado.template
 import hashlib
 from var_dump import var_dump
 
-from ...utils.entries.logical import *
-from ...utils.entries.filter import *
-from ...utils.entries.Article import *
 
 from dateutil.relativedelta import relativedelta
 

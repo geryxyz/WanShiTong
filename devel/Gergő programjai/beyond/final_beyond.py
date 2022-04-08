@@ -101,7 +101,7 @@ def get_article(*filters: Union[Logic,Filter]) -> List[Article]:
     return resume
 
 
-c
+
     # get_article(TrueLogic(ContainsFilter(Article.title, "kiskutya")))
     # get_article(AndLogic(ContainsFilter(Article.__fields__['title'], "kismacska"), ContainsFilter(Article.__fields__['title'], "kiskutya")))
     # get_article(BiggerFilter(article.page, 9))

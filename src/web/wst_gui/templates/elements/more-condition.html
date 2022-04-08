@@ -4,7 +4,6 @@
    </div>
    <div class="col-md-10">
       <select name="field_{{i}}" id="field_{{i}}" form="search" class="form-select" >
-         <option selected>Choose...</option>
          {% for j in handler.property_list %}
          <option value="{{j}}">{{j}}</option>
          {% end %}
@@ -13,41 +12,22 @@
 </div>
 
 
-{#<div class="row">
-   <div class="col-md-4">
-      <label class="input-group-text" for="type_{{i}}">Type</label>
-   </div>
-   <div class="col-md-8">
-      <select id="type_{{i}}" name="type_{{i}}" form="search" class="form-select">
-         <option selected>Choose...</option>
-         <option value="author">Article</option>
-         <option value="title">PHD thesis</option>
-         <option value="opel">MSC thesis</option>
-         <option value="audi">News</option>
-      </select>
-   </div>
-</div>#}
 
 <div class="d-flex justify-content-center" style="padding-top: 2em">
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="not_{{i}}" name="not_{{i}}">
-  <label class="form-check-label" for="not_{{i}}">
-    NOT
-  </label>
-</div>
+
 </div>
 
 <div class="d-flex justify-content-center" style="padding-bottom: 2em">
 
    <div class="col-md-6">
    <select id="condition_{{i}}" name="condition_{{i}}" form="search" class="form-select-lg" style="width: 100%; text-align: center">
-      <option value="eq">Equals</option>
-      <option value="c">Contains</option>
-      <option value="eol">Equals or less</option>
-      <option value="eom">Equals or more</option>
-      <option value="ne">Not equals</option>
-      <option value="nc">Not contains</option>
-      <option value="mw">Match with</option>
+      <option value="Equals">Equals</option>
+      <option value="Contains">Contains</option>
+      <option value="Equals_or_less">Equals or less</option>
+      <option value="Equals_or_more">Equals or more</option>
+      <option value="NotEquals">Not equals</option>
+      <option value="NotContains">Not contains</option>
+      <option value="Matches">Match with</option>
    </select>
       </div>
 </div>
@@ -55,7 +35,7 @@
 
 
 <div class="d-flex justify-content-center">
-   <div class="col-md-6">  <input type="text" id="value_{id}" class="form-control" placeholder="Enter value" style="text-align: center"></div>
+   <div class="col-md-6">  <input type="text" id="value_{{i}}" name="value_{{i}}" class="form-control" placeholder="Enter value" style="text-align: center"></div>
 </div>
 
 {%if i+1 < handler.number%}

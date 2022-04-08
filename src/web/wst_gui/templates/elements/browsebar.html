@@ -1,8 +1,12 @@
 <div class="row d-flex justify-content-center">
   <div class="card p-3 py-4">
+    <form action="/publications" method="post">
+        <div class="col-sm-12">
+{% if hasattr(handler, "web_message") %} {% include warnings/warning-template.html %} {% end %}
+  </div>
     <h5>Search for publications</h5>
     <div class="d-flex justify-content-center">
-      <select class="form-select" aria-label="Default select example" id="entries">
+      <select class="form-select" aria-label="Default select example" id="entries" name="entry_type">
         {%for j in handler.switcher%}
         <option value="{{j}}" {% if j == handler.entry %}selected{% end %}>{{j}}</option>
         {%end%}
@@ -10,7 +14,7 @@
   </div>
     <div class="row g-3 mt-2">
       <div class="col-md-9">
-        <input type="text" class="form-control" placeholder="Enter value">
+        <input type="text" class="form-control" placeholder="Enter value" {% if handler.number > 0 %} disabled {% end %}>
       </div>
       <div class="col-md-3">
         <button class="btn btn-secondary btn-block" id="search_submit" type="submit">Search Results</button>
@@ -27,6 +31,7 @@
         {% end %}
       </div>
     </div>
+      </form>
   </div>
 </div>
 
