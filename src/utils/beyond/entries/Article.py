@@ -17,3 +17,7 @@ class Article(BaseEntry):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    @classmethod
+    def getname(cls):
+        return "Article"

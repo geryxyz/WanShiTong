@@ -8,3 +8,4 @@ from . import index
 from . import defaultHandler
 from . import my_folders
 from . import static_file_handler
+from . import get_publication

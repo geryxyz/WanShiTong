@@ -41,6 +41,7 @@ class ModuleInit():
             (r"/publications", publications.Index, handler_parameters),
             (r"/publications/(.*)", publications.Index, handler_parameters),
             (r"/users", user.Index, handler_parameters),
+            (r"/get_publication", get_publication.Index, handler_parameters),
             (r"/static/(.*)", static_file_handler.StaticFileHandler, {"path": static_path}),
             (r"/(.*)", defaultHandler.Index, handler_parameters),
         ]

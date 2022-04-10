@@ -9,6 +9,19 @@
 
     {%include elements/side-navbar.html%}
     <div class="col-sm-10">
+                    <nav aria-label="...">
+  <ul class="pagination justify-content-center">
+    <li class="page-item {% if handler.current_page == 1 %} disabled {% end %}">
+      <a class="page-link" href="/publications/results?pg=previous">Previous</a>
+    </li>
+    {% for i in range(1, handler.max_page) %}
+    <li class="page-item {% if i == handler.current_page %} active {% end %}"><a class="page-link" href="/publications/results?pg={{i}}">{{i}}</a></li>
+    {% end %}
+      <li class="page-item {% if handler.current_page == handler.max_page %} disabled {% end %}">
+      <a class="page-link" href="/publications/results?pg=next">Next</a>
+    </li>
+  </ul>
+</nav>
 
 {% if hasattr(handler, "web_message") %} <div class="d-flex justify-content-center">{% include elements/warnings/warning-template.html %}</div> {% end %}
       {% for i in handler.result %}

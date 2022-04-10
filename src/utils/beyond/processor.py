@@ -70,6 +70,7 @@ class Processor():
                     raise TypeError()
                     # print(one_by_one_filter)
             self.filtered_entries.append(one_by_one_filter)
+        # self.final_entries = self.filtered_entries
         for elem in self.filtered_entries:
             if len(elem) > 0:
                 return
@@ -139,6 +140,8 @@ class Processor():
         #         return self.final_entries
         #     else:
         #         raise Exception("Logical condition was not given!")
+        if not hasattr(self, "final_entries"):
+            return self.filtered_entries[0]
         return self.final_entries
 
 

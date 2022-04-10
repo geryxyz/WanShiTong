@@ -3,6 +3,7 @@ from typing import List
 
 
 class Thesis(BaseEntry):
+    index: int
     author: str
     title: str
     type: str
@@ -17,3 +18,7 @@ class Thesis(BaseEntry):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    @classmethod
+    def getname(cls):
+        return "Thesis"

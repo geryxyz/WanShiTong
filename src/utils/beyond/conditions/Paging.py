@@ -11,7 +11,7 @@ class Paging():
         self.pgnumber = pgnumber
         if pgnumber > self.get_pages_number() or (pgnumber < 1):
             raise TooManyPages("Invalid page number!")
-        return [self.collection[i:i + self.entry_per_page] for i in range(0, len(self.collection), self.entry_per_page)][self.pgnumber]
+        return [self.collection[i:i + self.entry_per_page] for i in range(0, len(self.collection), self.entry_per_page)][self.pgnumber-1]
         # return [self.collection[i:i + self.entry_per_page] for i in range(0, len(self.collection), self.entry_per_page)][self.pgnumber]
 
     def get_pages_number(self):

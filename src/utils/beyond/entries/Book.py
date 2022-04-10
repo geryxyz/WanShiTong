@@ -4,6 +4,7 @@ from typing import List
 
 
 class Book(BaseEntry):
+    index: int
     author: str
     title: str
     year: int
@@ -15,4 +16,8 @@ class Book(BaseEntry):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+    @classmethod
+    def getname(cls):
+        return "Book"
 

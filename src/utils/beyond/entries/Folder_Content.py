@@ -6,10 +6,9 @@ from typing import List, Optional
 
 class Folder(BaseEntry):
     """
-    List of folders
+    Content of one Folder
     """
     id: int
-    Name: str
-    title: str
-    parent: int
-    userid: int
+    folder: int
+    entry_type: BaseEntry
+    entry_id: int

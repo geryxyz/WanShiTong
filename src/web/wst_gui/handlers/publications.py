@@ -38,13 +38,13 @@ class Index(ModulebaseHandler):
             return 100
         if("pg" in uri):
             if(self.userid in self.user_processor):
-                pr: Processor = self.user_processor[self.userid]
+                self.p: Processor = self.user_processor[self.userid]
                 page_number = self.get_argument("pg", str(1))
-                pr.page(page_number)
-                self.result = pr.get_result()
-                self.get_warn("secondary", "There were " + str(pr.full_results) + " results!")
-                self.max_page = pr.maximum_pages
-                self.current_page = pr.current_page
+                self.p.page(page_number)
+                self.result = self.p.get_result()
+                self.get_warn("secondary", "There were " + str(self.p.full_results) + " results!")
+                self.max_page = self.p.maximum_pages
+                self.current_page = self.p.current_page
                 self.render("results.html", handler=self)
                 return 100
 
@@ -75,7 +75,7 @@ class Index(ModulebaseHandler):
         filters = []
         logics = []
         self.entry = Processor.str2entry(entry)  # it will be the processor
-        p = Processor(self.entry)
+        self.p = Processor(self.entry)
         for i in range(0, self.number):
             condition = self.get_argument("condition_" + str(i), "Contains")
             field = self.get_argument("field_" + str(i), "title")
@@ -99,7 +99,7 @@ class Index(ModulebaseHandler):
                 return
 
         try:
-            p.filter(filters)
+            self.p.filter(filters)
         except ZeroResultException:
             self.get_warn("info", "There were 0 results! Try with other conditions...")
             self.prepare_site()
@@ -112,13 +112,13 @@ class Index(ModulebaseHandler):
             return
 
         # if 0 results were we dont have to continue with logic...
-        p.logic(logics)
+        self.p.logic(logics)
         order_by = self.get_argument("order_by", "index")
         order_type = self.get_argument("order", "ascending")
-        p.order(order_type, order_by)
-        p.paging_init(15, 1)
-        self.max_page = p.maximum_pages
-        self.result = p.get_result()
+        self.p.order(order_type, order_by)
+        self.p.paging_init(15, 1)
+        self.max_page = self.p.maximum_pages
+        self.result = self.p.get_result()
         self.current_page = 1
         # var_dump(self.result)
         if (not hasattr(self, "result")):
@@ -126,8 +126,8 @@ class Index(ModulebaseHandler):
             self.prepare_site()
             self.render("publications.html", handler=self)
             return
-        self.get_warn("secondary", "There were " + str(p.full_results) + " results!")
-        self.user_processor[self.userid] = p
+        self.get_warn("secondary", "There were " + str(self.p.full_results) + " results!")
+        self.user_processor[self.userid] = self.p
         self.render("results.html", handler=self)
 
 
