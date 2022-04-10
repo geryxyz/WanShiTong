@@ -13,4 +13,6 @@ class Book(BaseEntry):
     publisher: str
     month: int
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 

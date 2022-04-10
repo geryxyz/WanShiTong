@@ -1,12 +1,5 @@
-from .handlers import index
-from .handlers import defaultHandler
-from .handlers import login
-from .handlers import browse
-from .handlers import publications
-from .handlers import signup
-from .handlers import user
-from .handlers import my_folders
-from .handlers.static_file_handler import StaticFileHandler
+
+from .handlers import *
 import datetime
 from var_dump import var_dump
 # from .handlers import default
@@ -41,12 +34,13 @@ class ModuleInit():
             (r"/", index.Index, handler_parameters),
             (r"/index", index.Index, handler_parameters),
             (r"/login", login.Index, handler_parameters),
+            (r"/logout", logout.Index, handler_parameters),
             (r"/signup", signup.Index, handler_parameters),
             (r"/my_folders", my_folders.Index, handler_parameters),
             (r"/publications", publications.Index, handler_parameters),
             (r"/publications/(.*)", publications.Index, handler_parameters),
             (r"/users", user.Index, handler_parameters),
-            (r"/static/(.*)", StaticFileHandler, {"path": static_path}),
+            (r"/static/(.*)", static_file_handler.StaticFileHandler, {"path": static_path}),
             (r"/(.*)", defaultHandler.Index, handler_parameters),
         ]
         self.Database = Database("wst-db.sqlite")

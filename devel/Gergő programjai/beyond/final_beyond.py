@@ -23,7 +23,7 @@ class Article(BaseModel):
     @classmethod
     def get_field_names(cls,alias=False):
         """
-        It returns the entries fields
+        It returns the beyond fields
         :param alias:
         :return:
         """

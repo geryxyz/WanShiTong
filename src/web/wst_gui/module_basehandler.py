@@ -84,6 +84,11 @@ class ModulebaseHandler(tornado.web.RequestHandler):
             data = self.Database.query(sqlc, (id,))
             self.userdata = data[0]
             # var_dump(self.userdata)
+        elif(self.get_secure_cookie("userid", None) is not None):
+            userid = int(self.get_secure_cookie("userid"))
+            sqlc = ''' SELECT * FROM users WHERE id = ? '''
+            data = self.Database.query(sqlc, (userid,))
+            self.userdata = data[0]
             return
 
     def get_properties(self, target: object):

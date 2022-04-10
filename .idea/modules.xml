@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../Beyond Layer/.idea/Beyond Layer.iml" filepath="$PROJECT_DIR$/../Beyond Layer/.idea/Beyond Layer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/WanShiTong.iml" filepath="$PROJECT_DIR$/.idea/WanShiTong.iml" />
     </modules>
   </component>

@@ -28,7 +28,7 @@ class Index(ModulebaseHandler):
             self.login_user(result[0]['id'], self.username)
         else:
             self.get_warn("danger", "You have entered the wrong password or the user does not exists!")
-        self.render("index.html", handler=self)
+        self.redirect("/index")
 
 
 

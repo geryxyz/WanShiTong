@@ -1,5 +1,4 @@
-from ..BaseEntry import BaseEntry
-# from ...Filter import Filter
+from .BaseEntry import BaseEntry
 from typing import List
 
 
@@ -15,3 +14,6 @@ class Thesis(BaseEntry):
     isbn: str
     pages: int
     url: str
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)

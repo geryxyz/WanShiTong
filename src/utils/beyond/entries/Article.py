@@ -1,9 +1,7 @@
 
 # from ...Filter import Filter
 from typing import List
-from ..entries.BaseEntry import BaseEntry
-# from pydantic import BaseModel
-
+from .BaseEntry import BaseEntry
 
 class Article(BaseEntry):
     index: int
@@ -19,4 +17,3 @@ class Article(BaseEntry):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # print("heló")

@@ -32,7 +32,7 @@ class Processor():
         with open("test_data.json") as file:
             data = json.load(file)
             self.entries: List[Article] = [Article(**item) for item in data]
-        # print(self.entries)
+        # print(self.beyond)
 
     # ... initThesis, initPHD, init...
 
@@ -45,7 +45,7 @@ class Processor():
 
     def filter(self, *filters: Filter):
         """
-        It filters the entries. Generates a few tuples one-by-one filters, which entries apply
+        It filters the beyond. Generates a few tuples one-by-one filters, which beyond apply
         :param filters:
         :return:
         """
