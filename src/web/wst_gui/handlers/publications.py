@@ -36,6 +36,19 @@ class Index(ModulebaseHandler):
         if ("remove" in uri):
             self.remove_searching_field()
             return 100
+        if("pg" in uri):
+            if(self.userid in self.user_processor):
+                pr: Processor = self.user_processor[self.userid]
+                page_number = self.get_argument("pg", str(1))
+                pr.page(page_number)
+                self.result = pr.get_result()
+                self.get_warn("secondary", "There were " + str(pr.full_results) + " results!")
+                self.max_page = pr.maximum_pages
+                self.current_page = pr.current_page
+                self.render("results.html", handler=self)
+                return 100
+
+
 
     def add_searching_field(self):
         """
@@ -103,75 +116,19 @@ class Index(ModulebaseHandler):
         order_by = self.get_argument("order_by", "index")
         order_type = self.get_argument("order", "ascending")
         p.order(order_type, order_by)
+        p.paging_init(15, 1)
+        self.max_page = p.maximum_pages
         self.result = p.get_result()
+        self.current_page = 1
         # var_dump(self.result)
         if (not hasattr(self, "result")):
             self.get_warn("danger", "Fill every field!")
             self.prepare_site()
             self.render("publications.html", handler=self)
             return
-        self.get_warn("secondary", "There were " + str(len(self.result)) + " results!")
+        self.get_warn("secondary", "There were " + str(p.full_results) + " results!")
+        self.user_processor[self.userid] = p
         self.render("results.html", handler=self)
 
-    # def str2entry(self, string):
-    #     """
-    #     It converts the string which comes from frontend to Processor
-    #     :param string:
-    #     :return:
-    #     """
-    #     if(string == "Article"):
-    #         self.entry = Article
-    #         return Processor(Article)
-    #     if(string == "Book"):
-    #         self.entry = Book
-    #         return Processor(Book)
-    # TODO: You have to continue this line
 
-    # def str2logic(self, logic):
-    #     if(logic == "OR"):
-    #         return Or()
-    #     if(logic == "AND"):
-    #         return And()
-    #     if(logic == "XOR"):
-    #         return Xor()
-    #     raise UnknownLogic
 
-    # def str2filter(self, condition, field, value):
-    #     """
-    #     It converts the frontend's string to filter object
-    #     :param condition: eg. Equals, Contains etc.
-    #     :param field: title, author etc.
-    #     :param value: Mandurah, Biden etc.
-    #     :return:
-    #     """
-    #     if condition == "Contains":
-    #         return Contains(self.entry.__fields__[field], value)
-    #
-    #     if condition == "Matches":
-    #         return Matches(self.entry.__fields__[field], value)
-    #
-    #     if condition == "NotContains":
-    #         return NotContains(self.entry.__fields__[field], value)
-    #
-    #     if condition == "NotMatches":
-    #         return NotMatches(self.entry.__fields__[field], value)
-    #
-    #     if condition == "NotEquals":
-    #         return NotEquals(self.entry.__fields__[field], value)
-    #
-    #     if condition == "Equals_or_less":
-    #         return Equals_or_less(self.entry.__fields__[field], value)
-    #
-    #     if condition == "Equals_or_more":
-    #         return Equals_or_more(self.entry.__fields__[field], value)
-    #
-    #     if condition == "Less_than":
-    #         return Less_than(self.entry.__fields__[field], value)
-    #
-    #     if condition == "More_than":
-    #         return More_than(self.entry.__fields__[field], value)
-    #
-    #     if condition == "Equals":
-    #         return Equals(self.entry.__fields__[field], value)
-    #
-    #     raise UnknownCondition(condition + "unknown condition!")

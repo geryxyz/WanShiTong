@@ -23,6 +23,10 @@ class Processor():
             self.initArticles()
         if source == Book:
             raise NotImplementedError()
+        self.used_filters = []
+        self.used_logics = []
+        self.used_order = None
+        self.used_pagination = None
         # and so on!!
         # we have to put several if-es to check these
 
@@ -55,6 +59,7 @@ class Processor():
         """
         filters = filters[0]
         one_by_one_filter = []
+        self.used_filters = filters
         for filter in filters:
             one_by_one_filter = []
             for entry in self.entries:
@@ -72,10 +77,12 @@ class Processor():
 
     def logic(self, *logic: Logic):
         logic = logic[0]
+        self.used_logics = logic
         if len(logic) == 0:
             if len(self.filtered_entries) > 1:
                 raise LogicalWasNotGiven("Logical condition was not given!")
             self.final_entries = self.filtered_entries[0]
+            self.original_results = self.final_entries
             return
         logic_helper = self.filtered_entries
         re_set = self.filtered_entries[0]
@@ -86,13 +93,43 @@ class Processor():
             # stack.pop()
             counter = counter + 1
         self.final_entries = re_set
+        self.original_results = self.final_entries
 
     def order(self, order_type: str, field: str):
-        self.order = Processor.str2order(order_type, field)
-        self.final_entries = self.order.order(self.final_entries)
+        self.used_order = Processor.str2order(order_type, field)
+        self.final_entries = self.used_order.order(self.final_entries)
+        self.original_results = self.final_entries
 
-    def pagination(self, *logic: Logic):
-        raise NotImplementedError()
+    def paging_init(self, entry_per_page: int, pgnumber: int):
+        self.pagination = Paging(entry_per_page, self.final_entries)
+        self.full_results = len(self.original_results)
+        self.maximum_pages = self.pagination.get_pages_number()
+        self.final_entries = self.pagination.getpage(1)
+        self.current_page = pgnumber
+
+    def page(self, way: str):
+        # way: plus-minus
+        way = way.lower()
+        if way == "next":
+            self.final_entries = self.pagination.next_page()
+            self.current_page = self.pagination.pgnumber
+            return
+        elif way == "previous":
+            self.final_entries = self.pagination.previous_page()
+            self.current_page = self.pagination.pgnumber
+            return
+        try:
+            way = int(way)
+        except ValueError:
+            raise TooManyPages()  # do job to handle: s does not contain anything convertible to int
+        except Exception as ex:
+            raise TooManyPages()  # do job to handle: Exception occurred while converting to int
+
+        self.final_entries = self.pagination.getpage(int(way))
+        self.current_page=self.pagination.pgnumber
+        return
+
+
 
     def get_result(self):
         # if (len(self.filtered_entries) == 1):

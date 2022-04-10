@@ -17,11 +17,14 @@ class ModulebaseHandler(tornado.web.RequestHandler):
         self.authors = owner.authors
         self.release_date = owner.release_date
         self.loader = owner.Loader
-        self.owner = owner
+        self.owner = owner.user_processors
+        self.user_processor = owner.user_processors
 
         # self.elements_dir = os.path.join(self.directory, "templates/elements")
         self.session = self.get_cookie("session", default=None)
         self.userid = self.get_secure_cookie("userid", None)
+        if(self.userid is not None):
+            self.userid = int(self.userid)
         self.user_data = {}
         if(len(self.user_data) == 0):
             self.user_data = owner.user_data

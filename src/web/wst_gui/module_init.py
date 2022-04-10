@@ -26,6 +26,7 @@ class ModuleInit():
         self.directory = os.path.dirname(__file__)
         self.user_data = {} #pair of cookie and userid dict
         self.needed_information = {} #additional informations of the user
+        self.user_processors = {} #dict of a user's browsing history. userid: processor
         self.Loader = template.Loader(os.path.join(self.directory, "templates"))
 
         static_path = os.path.join(os.path.dirname(__file__), "static")
