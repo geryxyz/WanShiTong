@@ -35,13 +35,9 @@ class Xor(Logic):
     def __init__(self):
         super().__init__()
 
-    def analyze(self, set1: List, set2):
-        #TODO: this
-        raise NotImplementedError()
-        # for s in set1:
-        #     if(s in set2):
-        #         set1.remove(s)
-        # return set1
+    def analyze(self, set1: List, set2: List):
+        #https://stackoverflow.com/questions/22736641/xor-on-two-lists-in-python
+        return list(set(set1).symmetric_difference(set2))
 
 # class Not(Logic):
 #     def __init__(self):

@@ -14,15 +14,12 @@ class Processor():
     def __init__(self, source: BaseEntry):
         """
         We wait for each entry type.
-        :param source:
+        :param source: Which entry do you want to make the processor for?
         """
         self.filtered_entries = []
         self.source = source
+        self.initSource(self.source)
 
-        if source == Article:  # this is how we can check our input
-            self.initArticles()
-        if source == Book:
-            raise NotImplementedError()
         self.used_filters = []
         self.used_logics = []
         self.used_order = None
@@ -42,20 +39,52 @@ class Processor():
             # self.beyond = [Article()]
         # print(self.beyond)
 
-    # ... initThesis, initPHD, init...
+
+    def initSource(self, source):
+        #We initialize entries here
+        if source == Article:  # this is how we can check our input
+            self.initArticles()
+            return
+        if source == Book:
+            self.initBook()
+            return
+        if source == Folder:
+            self.initFolders()
+            return
+        if source == Thesis:
+            self.initThesis()
+            return
+        if source == Booklet:
+            self.initBooklet()
+            return
+        raise UnknownEntry("Unknown entry has been given to processor as source!")
+
+    def initFolders(self):
+
+        with open("test_article.json") as file:
+            data = json.load(file)
+            self.entries: List[Folder] = [Folder(**item) for item in data]
 
     def initBook(self):
         """
         We initialize here every book
         :return:
         """
-        raise NotImplementedError
+        raise NotImplementedError()
+
+    def initThesis(self):
+        #TODO: Initalize Thesises here!
+        raise NotImplementedError()
+
+    def initBooklet(self):
+        #TODO: Initialize Booklets here!
+        raise NotImplementedError()
 
     def filter(self, *filters: Filter):
         """
         It filters the beyond. Generates a few tuples one-by-one filters, which beyond apply
-        :param filters:
-        :return:
+        :param filters: Filter type objects
+        :return: Filtered entries by every Filter: it is a tuple
         """
         filters = filters[0]
         one_by_one_filter = []

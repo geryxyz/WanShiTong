@@ -35,5 +35,5 @@ class LogicalWasNotGiven(Error):
 
 
 class TooManyPages(Error):
-    """If an unexisting page wanted to be showed"""
+    """If an unexisting page wanted to be shown"""
     pass

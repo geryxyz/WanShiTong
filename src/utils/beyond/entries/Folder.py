@@ -9,7 +9,7 @@ class Folder(BaseEntry):
     List of folders
     """
     id: int
-    Name: str
+    name: str
     title: str
     parent: int
     userid: int
