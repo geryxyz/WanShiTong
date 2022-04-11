@@ -1,0 +1,58 @@
+<div class="row">
+   <div class="col-md-2">
+      <label class="input-group-text" for="field_{{i}}">Field</label>
+   </div>
+   <div class="col-md-10">
+      <select name="field_{{i}}" id="field_{{i}}" form="search" class="form-select" >
+         {% for j in handler.property_list %}
+         <option value="{{j}}">{{j}}</option>
+         {% end %}
+      </select>
+   </div>
+</div>
+
+
+
+<div class="d-flex justify-content-center" style="padding-top: 2em">
+
+</div>
+
+<div class="d-flex justify-content-center" style="padding-bottom: 2em">
+
+   <div class="col-md-6">
+   <select id="condition_{{i}}" name="condition_{{i}}" form="search" class="form-select-lg" style="width: 100%; text-align: center">
+      <option value="Equals">Equals</option>
+      <option value="Contains">Contains</option>
+      <option value="Equals_or_less">Equals or less</option>
+      <option value="Equals_or_more">Equals or more</option>
+      <option value="Less_than">Less than</option>
+      <option value="More_than">More than</option>
+      <option value="NotEquals">Not equals</option>
+      <option value="NotContains">Not contains</option>
+      <option value="Matches">Match with</option>
+   </select>
+      </div>
+</div>
+
+
+
+<div class="d-flex justify-content-center">
+   <div class="col-md-6">  <input type="text" id="value_{{i}}" name="value_{{i}}" class="form-control" placeholder="Enter value" style="text-align: center"></div>
+</div>
+
+{%if i+1 < handler.number%}
+<div class="d-flex justify-content-between" style="padding-bottom: 2em; padding-top: 2em">
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_{{i}}" id="logical_or_{{i}}" value="OR">
+      <label class="form-check-label" for="logical_or_{{i}}">OR</label>
+   </div>
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_{{i}}" id="logical_and_{{i}}" value="AND">
+      <label class="form-check-label" for="logical_and_{{i}}">AND</label>
+   </div>
+   <div class="form-check form-check-inline">
+      <input class="form-check-input" type="radio" name="logical_{{i}}" id="logical_xor_{{i}}" value="XOR">
+      <label class="form-check-label" for="logical_xor_{{i}}">XOR</label>
+   </div>
+</div>
+{% end %}

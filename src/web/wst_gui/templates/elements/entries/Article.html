@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Value</th>
+  </thead>
+  <tbody>
+  {%for i in handler.fields%}
+    <tr>
+      <td>{{i}}</td>
+      <td>{{ getattr(handler.entry, i) }}</td>
+    </tr>
+  {%end%}
+</table>

@@ -6,3 +6,5 @@ pip install pysqlite3
 
 //Git connector's requirements
 
+
+tornado~=6.1
