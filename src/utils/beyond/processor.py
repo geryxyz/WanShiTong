@@ -33,7 +33,7 @@ class Processor():
         :return:
         """
         # TODO: You have to init Articles from Bib here
-        with open("test_data.json") as file:
+        with open("test_article.json") as file:
             data = json.load(file)
             self.entries: List[Article] = [Article(**item) for item in data]
             # self.beyond = [Article()]
@@ -175,7 +175,7 @@ class Processor():
 
 
     @classmethod
-    def str2filter(cls, entry, condition: str, field, value):
+    def str2filter(cls, entry, condition: str, field, value) -> Filter:
         """
         It converts the frontend's string to filter object
         :param entry: entry
@@ -242,6 +242,11 @@ class Processor():
         if entry == "book":
             return Book
             # return Processor(Book)
+        if entry == "thesis":
+            return Thesis
+        if entry == "booklet":
+            return Booklet
+        #TODO: You have to continue the line!
         raise UnknownEntry()
 
     @classmethod
@@ -252,3 +257,13 @@ class Processor():
         if order == "ascending":
             return AscendingOrder(field)
         raise UnknownOrder()
+
+    @classmethod
+    def addPublication(cls, entry_type, entry):
+        """
+        entry_type: type of entry incoming from the web
+        entry: the entry comes from the web
+
+        """
+        #TODO: Niki you have to add these entries to GIT
+        raise NotImplementedError()

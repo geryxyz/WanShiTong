@@ -14,7 +14,7 @@
   </div>
     <div class="row g-3 mt-2">
       <div class="col-md-9">
-        <input type="text" class="form-control" placeholder="Enter value" {% if handler.number > 0 %} disabled {% end %}>
+        <input type="text" class="form-control" placeholder="Enter value" name="basic_search" {% if handler.number > 0 %} disabled {% end %}>
       </div>
       <div class="col-md-3">
         <button class="btn btn-secondary btn-block" id="search_submit" type="submit">Search Results</button>

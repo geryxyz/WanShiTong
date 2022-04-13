@@ -71,11 +71,34 @@ class Index(ModulebaseHandler):
         get_searching_data = []
         self.form_data = []
         entry = self.get_argument("entry_type", "Article")  # book, article etc
-        self.number = int(self.get_secure_cookie("conditions"))
+        basic = self.get_argument("basic_search", None)
+        self.number = int(self.get_secure_cookie("conditions", None))
         filters = []
         logics = []
         self.entry = Processor.str2entry(entry)  # it will be the processor
         self.p = Processor(self.entry)
+
+        if(basic is not None):
+            f = []
+            f.append(Processor.str2filter(self.entry, "Contains", "author", basic))
+            f.append(Processor.str2filter(self.entry, "Contains", "title", basic))
+            self.p.filter(f)
+            self.p.logic([Or()])
+            self.p.paging_init(15, 1)
+            self.max_page = self.p.maximum_pages
+            self.result = self.p.get_result()
+            self.current_page = 1
+            # var_dump(self.result)
+            if (not hasattr(self, "result")):
+                self.get_warn("danger", "Fill every field!")
+                self.prepare_site()
+                self.render("publications.html", handler=self)
+                return
+            self.get_warn("secondary", "There were " + str(self.p.full_results) + " results!")
+            self.user_processor[self.userid] = self.p
+            self.render("results.html", handler=self)
+            return
+
         for i in range(0, self.number):
             condition = self.get_argument("condition_" + str(i), "Contains")
             field = self.get_argument("field_" + str(i), "title")
