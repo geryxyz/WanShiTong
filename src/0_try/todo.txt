@@ -1,0 +1,51 @@
+index helyett key vagy keyword
+
+bibtexkey vagy biberkey
+
+végfelhasználónak irreleváns adat nem megjelenítése
+
+abstract néha benne van a referenciában
+
+release helyett publish
+
+táblázat: növekvő, csökkenő
+
+add pub: todozni jelezni a usernak hogy még nincs
+
+ikont a my foldershez
+
+bárkinek bárki cikkjét lehessen módosítani
+
+crud a mappához
+2 ugyanolyan mappa ne legyen
+
+ne legyen index
+
+https://www.jetbrains.com/help/pycharm/managing-dependencies.html#create-requirements
+
+devel->try
+
+readme.md -> mappastruktúra
+
+beyond->intermediate
+
+pydantic meta információ
+
+classmethod->static
+
+wan_shi_tong mappa, package létrehozva
+wst_ ne legyen már benne
+
+
+
+Szakdoga
+Használt cikktípusok -> 1.1.2
+
+KÉSZ
+captcha
+requirements
+süti 1 nap
+loginból kiszedni
+remember me:
+
+registering tool

@@ -1,0 +1,18 @@
+<div class="col-sm-6 d-flex">
+<div class="justify-content-center">
+    <form action="/add_publication" method="post">
+
+  <div class="form-group row d-flex justify-content-center">
+      {% for i,j in zip(handler.guifields, handler.guifields_for_backend) %}
+
+    <label for="{{ j }}" style="font-size: 20px">{{ j }}</label>
+    <input class="form-control form-control-lg" type="text" placeholder="{{ i }}" name="{{ i }}">
+
+      {% end %}
+      <input type="hidden" value="{{ handler.type }}" name="entrytype">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+    </div>
+
