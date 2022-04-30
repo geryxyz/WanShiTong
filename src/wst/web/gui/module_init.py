@@ -1,5 +1,6 @@
 
-from .handlers import *
+from src.wst.web.gui.handlers import *
+from src.wst.utils.config_parser import CParser
 import datetime
 # from .handlers import default
 
@@ -8,7 +9,7 @@ import os
 from src.wst.utils.database import Database
 
 
-class ModuleInit():
+class ModuleInit:
 
     def __init__(self):
 
@@ -19,6 +20,8 @@ class ModuleInit():
         self.needed_information = {} #additional informations of the user
         self.user_processors = {} #dict of a user's browsing history. userid: processor
         self.Loader = template.Loader(os.path.join(self.directory, "templates"))
+        self.config = CParser()
+        self.captcha_secret = self.config.getdata("captcha-secret-key")
 
         static_path = os.path.join(os.path.dirname(__file__), "static")
         handler_parameters = dict(owner=self)
@@ -35,6 +38,8 @@ class ModuleInit():
             (r"/add_publication", add_pub.Index, handler_parameters),
             (r"/users", user.Index, handler_parameters),
             (r"/get_publication", get_publication.Index, handler_parameters),
+            (r"/edit_publication", edit_publication.Index, handler_parameters),
+            (r"/delete_publication", delete_pub.Index, handler_parameters),
             (r"/static/(.*)", static_file_handler.StaticFileHandler, {"path": static_path}),
             (r"/(.*)", defaultHandler.Index, handler_parameters),
         ]

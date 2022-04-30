@@ -20,7 +20,7 @@ class ModulebaseHandler(tornado.web.RequestHandler):
         self.loader = owner.Loader
         self.owner = owner.user_processors
         self.user_processor = owner.user_processors
-
+        self.captcha_secret = owner.captcha_secret
         # self.elements_dir = os.path.join(self.directory, "templates/elements")
         self.session = self.get_cookie("session", default=None)
         self.userid = self.get_secure_cookie("userid", None)
@@ -107,7 +107,7 @@ class ModulebaseHandler(tornado.web.RequestHandler):
 
     def verify_captcha(self, usertoken):
         url = 'https://www.google.com/recaptcha/api/siteverify'
-        myobj = {'secret': '6LebanUfAAAAAH82ld3YsKH2fwlIFaY4rJlLzL9z', "response": usertoken,
+        myobj = {'secret': self.captcha_secret, "response": usertoken,
                  "remoteip": self.request.remote_ip}
 
         response = requests.post(url, data=myobj).text

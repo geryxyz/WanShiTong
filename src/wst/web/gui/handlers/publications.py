@@ -58,9 +58,10 @@ class Index(ModulebaseHandler):
                 self.order_type = self.get_argument("order_type", "ascending")
                 self.p.order(self.order_type, self.ordered_by)
                 self.get_warn("secondary", "There were " + str(self.p.full_results) + " results!")
+                self.current_page = self.p.current_page
+                self.p.page(str(self.current_page))
                 self.result = self.p.get_result()
                 self.max_page = self.p.maximum_pages
-                self.current_page = self.p.current_page
                 self.starting_page=(self.current_page-1)*self.p.entry_per_page
                 self.starting_page=self.starting_page+1
                 self.render("results.html", handler=self)

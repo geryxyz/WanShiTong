@@ -139,8 +139,7 @@ class Processor:
         self.used_order = Processor.str2order(order_type, field)
         self.current_order_type=order_type
         self.current_order_field=field
-        self.final_entries = self.used_order.order(self.final_entries)
-        self.original_results = self.final_entries
+        self.final_entries = self.used_order.order(self.original_results)
         if(hasattr(self, "pagination")):
             self.pagination.collection = self.final_entries
 
@@ -280,4 +279,14 @@ class Processor:
 
         """
         # TODO: Niki you have to add these entries to GIT
+        raise NotImplementedError()
+
+    @classmethod
+    def editPublication(cls, entry_type: BaseEntry, data: {}, citekey: str):
+        #TODO: Niki has to create this function, everything is given here
+        raise NotImplementedError()
+
+    @classmethod
+    def deletePublication(cls, entry_type: BaseEntry, citekey):
+        #TODO: Niki has to delete publications here
         raise NotImplementedError()

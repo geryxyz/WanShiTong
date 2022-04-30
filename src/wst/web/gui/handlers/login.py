@@ -20,7 +20,7 @@ class Index(ModulebaseHandler):
             self.get_warn("danger", "Verify that you are not a robot!" )
             self.render("login.html", handler=self)
             return
-        var_dump(captcha)
+        # var_dump(captcha)
         if(self.username is None or len(self.username) == 0):
             self.get_warn("warning", "You have to enter the username!")
             self.render("login.html", handler=self)

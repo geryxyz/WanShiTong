@@ -30,9 +30,9 @@
         <th scope="col">#</th>
         {% for i,j in zip(handler.p.field_gui_name, handler.p.field_gui_field) %}
         {% if handler.ordered_by == j and handler.order_type=="ascending" %}
-        <th scope="col" class="table-primary"><a href="/publications/order?orderby={{ j }}&order_type=descending">{{ i }}</a></th>
+        <th scope="col" class="table-primary"><a href="/publications/order?orderby={{ j }}&order_type=descending">{{ i }}</a> <i class="fas fa-arrow-down"></i></th>
         {% elif handler.ordered_by == j and handler.order_type=="descending"  %}
-        <th scope="col" class="table-primary"><a href="/publications/order?orderby={{ j }}&order_type=ascending">{{ i }}</a></th>
+        <th scope="col" class="table-primary"><a href="/publications/order?orderby={{ j }}&order_type=ascending">{{ i }}</a> <i class="fas fa-arrow-up"></i></th>
         {% else %}
         <th scope="col"><a href="/publications/order?orderby={{ j }}">{{ i }}</a></th>
         {% end %}
@@ -50,10 +50,16 @@
       <td>{{ getattr(i,j) }}</td>
         {% end %}
         <td>
+            <a href="/get_publication?entry_type={{ type(i).__name__ }}&citekey={{ i.citekey }}">
             <i class="fas fa-arrow-right"></i>
+                </a>
             <img src="/static/icons/add-folder-512.png" alt="" width="16px">
+            <a href="/edit_publication?entry_type={{ type(i).__name__ }}&citekey={{ i.citekey }}">
             <img src="/static/icons/edit-12-512.png" alt="" width="16px">
+            </a>
+            <a href="/delete_publication?entry_type={{ type(i).__name__ }}&citekey={{ i.citekey }}">
             <img src="/static/icons/trash-9-512.png" alt="" width="16px">
+                </a>
         </td>
     </tr>
     {% set counter=counter+1  %}

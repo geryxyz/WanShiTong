@@ -6,6 +6,7 @@ import tornado.web
 from tornado.options import options
 from tornado import ioloop
 from . import webserver_settings
+from src.wst.utils.config_parser import CParser
 
 class WebServer():
     def run(self):
@@ -47,7 +48,6 @@ class TornadoApplication(tornado.web.Application):
         # module = module_init.ModuleInit()
         # modules.append(module)
         # handlers.extend(module.handlers_table)
-
         # tornado.options.parse_command_line()
         tornado.web.Application.__init__(self, handlers, **webserver_settings.settings)
         # var_dump(webserver_settings.settings)
