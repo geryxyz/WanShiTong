@@ -2,7 +2,7 @@
 
     {# EZEK A FOLDEREK #}
     {% for i in handler.folders %}
-  <li><span class="caret" id="{{i.id}}">{{ i.name }}</span>
+  <li><a href="/edit_folder?folder_id={{ i.id }}"> <img src="/static/icons/edit-12-512.png" alt="" width="16px"></a><span class="caret" id="{{i.id}}">{{ i.name }}</span>
       <div id="folder_{{ i.id }}">
 
       </div>
@@ -13,7 +13,7 @@
     <li>
         <span>
 
-            <a href="/get_publication?citekey={{ i.citekey }}&type={{ i.entry_type }}">{{ handler.namess[i.citekey] }}</a>
+            <a href="/get_publication?citekey={{ i.citekey }}&entry_type={{ i.entry_type }}">{{ handler.namess[i.citekey] }}</a>
 
         </span>
     </li>

@@ -40,6 +40,10 @@ class ModuleInit:
             (r"/get_publication", get_publication.Index, handler_parameters),
             (r"/edit_publication", edit_publication.Index, handler_parameters),
             (r"/delete_publication", delete_pub.Index, handler_parameters),
+            (r"/edit_folder", edit_folder.Index, handler_parameters),
+            (r"/delete_folder", delete_folder.Index, handler_parameters),
+            (r"/new_folder", new_folder.Index, handler_parameters),
+            (r"/savepub", add_pub_to_folder.Index, handler_parameters),
             (r"/static/(.*)", static_file_handler.StaticFileHandler, {"path": static_path}),
             (r"/(.*)", defaultHandler.Index, handler_parameters),
         ]

@@ -6,7 +6,7 @@ from src.wst.utils import *
 class Index(ModulebaseHandler):
     def get(self, *args, **kwargs):
         # self.write("Hello world")
-        self.content_template = 'content/folders.html'
+        # self.content_template = 'content/folders.html'
         # self.render("index.html", handler=self)
         self.folder_processor = Processor(Folder)
         self.content_processor = Processor(Folder_Content)

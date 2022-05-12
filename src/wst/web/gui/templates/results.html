@@ -53,7 +53,7 @@
             <a href="/get_publication?entry_type={{ type(i).__name__ }}&citekey={{ i.citekey }}">
             <i class="fas fa-arrow-right"></i>
                 </a>
-            <img src="/static/icons/add-folder-512.png" alt="" width="16px">
+            <a href="/savepub?citekey={{ i.citekey }}"><img src="/static/icons/add-folder-512.png" alt="" width="16px"></a>
             <a href="/edit_publication?entry_type={{ type(i).__name__ }}&citekey={{ i.citekey }}">
             <img src="/static/icons/edit-12-512.png" alt="" width="16px">
             </a>

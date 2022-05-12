@@ -290,3 +290,25 @@ class Processor:
     def deletePublication(cls, entry_type: BaseEntry, citekey):
         #TODO: Niki has to delete publications here
         raise NotImplementedError()
+
+    @classmethod
+    def editFolder(cls, folderid, foldnername, parentid):
+        #TODO: Niki has to edit folder
+        raise NotImplementedError()
+
+    @classmethod
+    def deleteFolder(cls, folderid):
+        #TODO: Niki has to delete folders from here
+        #Important: you will have to delete all contents from the folder, including the publications
+        raise NotImplementedError()
+
+    @classmethod
+    def makeFolder(cls, foldername, parentid):
+        #TODO: foldername and parentid has been given, make it
+        raise NotImplementedError()
+
+    @classmethod
+    def addPubtoFolder(cls, pubid, folderid):
+        #TODO:
+        raise NotImplementedError()
+

@@ -1,0 +1,10 @@
+{
+  "captcha-secret-key": "...",
+  "port": 80,
+  "database": {
+    "filename": "valami.sqlite",
+    "username": "admin",
+    "password": "valami"
+},
+  "cookie-secret": "Hkj348+%!lkfad22DaorofoJOfeoajf83ij2ZEEZZ_wst_ZZPP"
+}

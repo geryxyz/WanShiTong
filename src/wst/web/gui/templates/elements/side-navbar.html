@@ -1,11 +1,14 @@
 <div class="col-sm-2">
 {# <iframe src="/my_folders/iframe" title="W3Schools Free Online Web Tutorials"></iframe>#}
-
+    {% if handler.loggedin %}
+    <a href="/new_folder"><img src="/static/icons/add-folder-512.png" style="width: 16px">Make new folder</a>
+    {%include folders/folders.html %}
+    {% end %}
   <hr class="d-sm-none">
 
 {#    {% include folders/folders.html %}#}
     <script>
-    $(function() {
+$(function() {
 
 // delegated handler
 $(".list-group-tree").on('click', "[data-toggle=collapse]", function(){

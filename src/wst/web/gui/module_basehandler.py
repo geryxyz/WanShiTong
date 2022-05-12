@@ -26,6 +26,10 @@ class ModulebaseHandler(tornado.web.RequestHandler):
         self.userid = self.get_secure_cookie("userid", None)
         if (self.userid is not None):
             self.userid = int(self.userid)
+            self.initFolders()
+            self.loggedin = True
+        else:
+            self.loggedin=False
         self.user_data = {}
         if (len(self.user_data) == 0):
             self.user_data = owner.user_data
@@ -141,3 +145,19 @@ class ModulebaseHandler(tornado.web.RequestHandler):
             # self.content_processor.filter(content_filters)
             self.folders = self.folder_processor.get_result()
             self.content = []
+
+    def initFolders(self):
+        self.folder_processor = Processor(Folder)
+        self.content_processor = Processor(Folder_Content)
+
+        self.fid = -1
+        folder_filters = []
+        content_filters = []
+        folder_filters.append(Processor.str2filter(Folder, "Equals", "userid", self.userid))
+        folder_filters.append(Processor.str2filter(Folder, "Equals", "parent", -1))
+
+        self.folder_processor.filter(folder_filters)
+        self.folder_processor.logic([And()])
+        # self.content_processor.filter(content_filters)
+        self.folders = self.folder_processor.get_result()
+        self.content = []

@@ -12,3 +12,7 @@ from . import get_publication
 from . import add_pub
 from . import edit_publication
 from . import delete_pub
+from . import edit_folder
+from . import delete_folder
+from . import new_folder
+from . import add_pub_to_folder

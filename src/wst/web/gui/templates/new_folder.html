@@ -1,0 +1,37 @@
+<!-- that how will a website look like -->
+{%include elements/header.html%}
+
+<body>
+{%include elements/top-navbar.html%}
+
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    {%include elements/side-navbar.html%}
+    <div class="col-sm-5">
+        {% if hasattr(handler, "web_message") %} {% include elements/warnings/warning-template.html %} {% end %}
+        <form method="post" action="/new_folder">
+            <label for="foldername">New folder's name:</label><input class="form-control" type="text" placeholder="Enter new folder's name" name="foldername">
+            <h2>Parent folder:</h2>
+             <label for="exampleFormControlSelect1">Choose Folder</label>
+    <select class="form-control" name="parentid">
+        {% for i in handler.trees_as_string %}
+      <option value="{{ i }}">{% for j in reversed(handler.trees_as_string[i]) %}{{j.name+'/'}}{% end %}</option>
+        {% end %}
+    </select>
+             <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+
+</body>
+
+{%include elements/footer.html%}
