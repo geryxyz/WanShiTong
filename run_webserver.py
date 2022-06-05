@@ -1,5 +1,5 @@
 import sys
-from src.web.webserver import WebServer
+from src.wst.web.webserver import WebServer
 
 
 try:

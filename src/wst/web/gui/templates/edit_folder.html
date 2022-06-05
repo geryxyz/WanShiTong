@@ -1,0 +1,63 @@
+<!-- that how will a website look like -->
+{%include elements/header.html%}
+
+<body>
+{%include elements/top-navbar.html%}
+
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    {%include elements/side-navbar.html%}
+    <div class="col-sm-10">
+        <div class="col-sm-5">
+            <row>
+            <h1>Edit Folder</h1>
+                {% if hasattr(handler, "web_message") %} {% include elements/warnings/warning-template.html %} {% end %}
+            <br>
+                </row>
+                <row>
+            <label for="foldername">Folder's name:</label>
+            <input class="form-control" type="text" placeholder="{{ handler.folder.name }}" id="foldername" value="{{ handler.folder.name }}">
+</row>
+
+            <h2>Move Folder to...</h2>
+                <label for="exampleFormControlSelect1">Choose Folder</label>
+    <select class="form-control" id="movefolder">
+        {% for i in handler.trees_as_string %}
+      <option value="{{ i }}">{% for j in reversed(handler.trees_as_string[i]) %}{{j.name+'/'}}{% end %}</option>
+        {% end %}
+    </select>
+
+
+                        <row>
+                <a href="/delete_folder?folderid={{ handler.folder.id }}">
+            <button type="button" class="btn btn-danger" >Delete Folder</button>
+                    </a>
+{#                                                <a href="/edit_folder?folder_id={{ handler.folder.id }}&">#}
+            <button type="button" class="btn btn-info" id="savefolder">Save Folder</button>
+{#                    </a>#}
+{#                </a>#}
+
+</row>
+        </div>
+        </div>
+
+        </div>
+
+    </div>
+  </div>
+</div>
+<script>
+
+    $( "#savefolder" ).click(function() {
+  location.href = "edit_folder?folder_id={{ handler.folder.id }}&foldername="+$("#foldername").val();
+});
+</script>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+
+</body>
+
+{%include elements/footer.html%}

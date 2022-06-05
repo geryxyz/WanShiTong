@@ -1,0 +1,97 @@
+[
+  {
+    "id": 1,
+    "name": "My publications",
+    "parent": -1,
+    "userid": 1
+  },
+    {
+    "id": 2,
+    "name": "IT",
+    "parent": 1,
+    "userid": 1
+  },
+    {
+    "id": 3,
+    "name": "Biology",
+    "parent": 1,
+    "userid": 1
+  },
+    {
+    "id": 4,
+    "name": "Chemistry",
+    "parent": 1,
+    "userid": 1
+  },
+    {
+    "id": 5,
+    "name": "John's publications",
+    "parent": -1,
+    "userid": 1
+  },
+
+      {
+    "id": 6,
+    "name": "Recent",
+    "parent": 5,
+    "userid": 1
+  },
+
+      {
+    "id": 7,
+    "name": "Add-to-watch",
+    "parent": 5,
+    "userid": 1
+  },
+
+      {
+    "id": 8,
+    "name": "Most exciting",
+    "parent": 5,
+    "userid": 1
+  },
+
+      {
+    "id": 9,
+    "name": "IT",
+    "parent": 8,
+    "userid": 1
+  },
+
+      {
+    "id": 10,
+    "name": "Data Science",
+    "parent": 8,
+    "userid": 1
+  },
+        {
+    "id": 11,
+    "name": "Followed scientists",
+    "parent": -1,
+    "userid": 1
+  },
+
+      {
+    "id": 12,
+    "name": "Tom",
+    "parent": 11,
+    "userid": 1
+  },
+
+      {
+    "id": 13,
+    "name": "David",
+    "parent": 11,
+    "userid": 1
+  },
+
+      {
+    "id": 14,
+    "name": "David's best",
+    "parent": 13,
+    "userid": 1
+  }
+
+
+
+]

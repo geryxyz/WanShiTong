@@ -1,0 +1,42 @@
+
+add pub: todozni jelezni a usernak hogy még nincs
+
+crud a mappához
+2 ugyanolyan mappa ne legyen
+
+
+https://www.jetbrains.com/help/pycharm/managing-dependencies.html#create-requirements
+
+
+Szakdoga
+Használt cikktípusok -> 1.1.2
+
+KÉSZ
+captcha
+requirements
+süti 1 nap
+loginból kiszedni
+remember me:
+devel->try
+classmethod->static
+pydantic meta információ
+wan_shi_tong mappa, package létrehozva
+wst_ ne legyen már benne
+registering tool
+ne legyen index
+readme.md -> mappastruktúra
+
+beyond->intermediate
+
+táblázat: növekvő, csökkenő
+index helyett key vagy keyword
+
+bibtexkey vagy biberkey
+
+végfelhasználónak irreleváns adat nem megjelenítése
+abstract néha benne van a referenciában
+
+release helyett publish
+bárkinek bárki cikkjét lehessen módosítani
+
+ikont a my foldershez

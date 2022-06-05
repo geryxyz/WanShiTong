@@ -1,0 +1,41 @@
+<!-- that how will a website look like -->
+{%include elements/header.html%}
+
+<body>
+{%include elements/top-navbar.html%}
+
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    {%include elements/side-navbar.html%}
+    <div class="col-sm-10">
+        <div class="col-sm-6">
+        {% if hasattr(handler, "web_message") %} {% include elements/warnings/warning-template.html %} {% end %}
+            </div>
+        <h2>Edit publication - {{ handler.publication.citekey }}</h2>
+                <form method="post">
+                    <input type="hidden" value="{{ handler.publication.citekey }}" name="citekey">
+                    <input type="hidden" value="{{ handler.entry_type }}" name="publication_type">
+        {% for i in range(0, len(handler.fields)) %}
+
+  <div class="form-group row">
+    <label for="{{ handler.fields[i] }}" class="col-sm-2 col-form-label">{{ handler.fields[i] }}</label>
+    <div class="col-sm-3">
+      <input type="text" class="form-control" name="{{ handler.fieldname[i] }}" value="{{ getattr(handler.publication, handler.fieldname[i]) }}">
+    </div>
+  </div>
+
+        {% end %}
+     <input type="submit" class="btn btn-primary" value="Save publication">
+       </form>
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+
+</body>
+
+{%include elements/footer.html%}

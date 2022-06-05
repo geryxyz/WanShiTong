@@ -1,0 +1,36 @@
+<!-- that how will a website look like -->
+{%include elements/header.html%}
+
+<body>
+{%include elements/top-navbar.html%}
+
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    {%include elements/side-navbar.html%}
+    <div class="col-sm-5">
+        {% if hasattr(handler, "web_message") %} {% include elements/warnings/warning-template.html %} {% end %}
+        <h2>Save publication {{ handler.citekey }}!</h2>
+        <form action="savepub" method="post">
+            <input type="hidden" value="{{ handler.citekey }}" name="citekey">
+                         <label for="exampleFormControlSelect1">Where do you want to save it?</label>
+    <select class="form-control" name="folderid">
+        {% for i in handler.trees_as_string %}
+      <option value="{{ i }}">{% for j in reversed(handler.trees_as_string[i]) %}{{j.name+'/'}}{% end %}</option>
+        {% end %}
+    </select>
+             <button type="submit" class="btn btn-info" id="savefolder">Save Folder</button>
+        </form>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="mt-5 p-4 bg-dark text-white text-center">
+  <p>Footer</p>
+</div>
+
+</body>
+
+{%include elements/footer.html%}
